@@ -1,368 +1,4423 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>HackVerse — Innovate. Build. Transform.</title>
-<meta name="description" content="HackVerse is an elite web development challenge organized by Takshashila University × FACEPrep Campus. Build. Compete. Win.">
+
+<meta name="description"
+content="HackVerse is an elite web development challenge organized by Takshashila University × FACEPrep Campus. Build. Compete. Win.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
 <style>
-:root{--bg:#050b1f;--card:#0b1533;--card2:#11204a;--text:#e6f0ff;--muted:#8aa0c8;--line:rgba(96,165,250,.24);--c1:#3b82f6;--c2:#06b6d4;--c3:#22d3ee;--c4:#2dd4bf;
---grad:linear-gradient(120deg,var(--c1),var(--c2) 55%,var(--c4));--grad2:linear-gradient(120deg,var(--c3),var(--c1));--glow:0 10px 40px rgba(59,130,246,.4)}
-body.light{--bg:#f2f8ff;--card:#fff;--card2:#e3f0ff;--text:#0b1b3a;--muted:#5a6f94;--line:rgba(37,99,235,.2);--c1:#2563eb;--c2:#0891b2;--c3:#0ea5e9;--c4:#0d9488;--glow:0 10px 40px rgba(37,99,235,.25)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
-body.locked{overflow:hidden}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15}
-.wrap{max-width:1120px;margin:auto;padding-inline:clamp(1.1rem,5vw,2.4rem)}
-section{padding-block:clamp(3.5rem,8vw,6rem)}
-.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
-.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;z-index:-1;pointer-events:none;animation:fl 14s ease-in-out infinite alternate}
-.b1{width:420px;height:420px;background:var(--c1);top:-100px;left:-100px}
-.b2{width:380px;height:380px;background:var(--c2);bottom:-120px;right:-80px;animation-delay:-5s}
-.b3{width:300px;height:300px;background:var(--c3);top:45%;left:55%;opacity:.2;animation-delay:-9s}
-body.light .blob{opacity:.28}
-@keyframes fl{to{transform:translate(60px,40px) scale(1.15)}}
 
-/* splash */
-#splash{position:fixed;inset:0;z-index:9999;background:#050b1f;display:flex;align-items:center;justify-content:center;transition:opacity .7s,visibility .7s;cursor:pointer}
-#splash.hide{opacity:0;visibility:hidden}
-.sp{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.3rem;opacity:0}
-#sp1{animation:in .8s ease .3s forwards,out .7s ease 3.4s forwards}
-#sp2{animation:in .8s ease 4.3s forwards,out .7s ease 7.5s forwards}
-#sp1 img{width:min(560px,80vw);filter:drop-shadow(0 0 50px rgba(59,130,246,.8)) drop-shadow(0 0 100px rgba(6,182,212,.4))}
-.card-sp{background:linear-gradient(135deg,#0b1533,#050b1f);border:1px solid rgba(6,182,212,.5);border-radius:22px;padding:clamp(1.2rem,4vw,2rem) clamp(1.6rem,6vw,3.2rem);box-shadow:0 0 70px rgba(59,130,246,.4)}
-.card-sp img{width:min(560px,78vw);filter:invert(1) hue-rotate(180deg) contrast(1.1) saturate(1.2)}
-.sp-label{color:#9c98c8;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase}
-.sp-bar{position:absolute;bottom:0;left:0;height:4px;background:var(--grad);width:0;animation:ld 8.4s linear .2s forwards}
-@keyframes in{to{opacity:1}}@keyframes out{from{opacity:1}to{opacity:0}}@keyframes ld{to{width:100%}}
+/* =========================================================
+   ROOT
+========================================================= */
 
-/* nav */
-nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(18px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem}
-.brand{font-family:'Sora';font-weight:800;font-size:1.05rem;display:flex;align-items:center;gap:.5rem;letter-spacing:.06em}
-.brand i{width:12px;height:12px;border-radius:50%;background:var(--grad);box-shadow:0 0 14px var(--c2)}
-.links{display:flex;gap:1.6rem;font-weight:500;font-size:.95rem;color:var(--muted)}
-.links a:hover{color:var(--c2)}
-.nav-r{display:flex;align-items:center;gap:.8rem}
-.badge{padding:.25rem .9rem;border-radius:50px;border:1px solid var(--c1);color:var(--c3);font-size:.75rem;font-weight:600}
-@media(max-width:768px){.links{display:none}}@media(max-width:480px){.badge{display:none}}
-.tt{position:relative;width:64px;height:32px;border-radius:32px;border:2px solid var(--c1);background:var(--card2);cursor:pointer;flex-shrink:0}
-.knob{position:absolute;top:2px;left:2px;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#93c5fd,#3b82f6);display:grid;place-items:center;font-size:14px;transition:transform .5s cubic-bezier(.5,1.6,.4,1),background .4s;box-shadow:0 0 14px var(--c1)}
-body.light .tt{border-color:#f59e0b}
-body.light .knob{transform:translateX(32px) rotate(360deg);background:linear-gradient(135deg,#fde68a,#f59e0b);box-shadow:0 0 18px var(--c4)}
-.tt:focus-visible,.btn:focus-visible{outline:3px solid var(--c3);outline-offset:3px}
-.spark{position:fixed;pointer-events:none;z-index:10000;font-size:18px}
+:root{
+  --bg:#050b1f;
+  --card:#0b1533;
+  --card2:#11204a;
 
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;border-radius:50px;font-weight:600;border:0;cursor:pointer;font-family:inherit;font-size:1rem;transition:transform .25s,box-shadow .25s}
-.btn:hover{transform:translateY(-3px) scale(1.03)}
-.btn-p{background:var(--grad);color:#fff;box-shadow:var(--glow)}
-.btn-g{border:2px solid var(--c1);color:var(--text)}
-.btn-g:hover{background:var(--c1);color:#fff}
+  --text:#e6f0ff;
+  --muted:#8aa0c8;
 
-/* hero */
-.hero{min-height:90vh;display:flex;align-items:center;text-align:center}
-.pill{display:inline-block;padding:.4rem 1.1rem;border-radius:50px;border:1px solid var(--line);background:var(--card);font-size:.85rem;color:var(--c3);margin-bottom:1.4rem}
-.hero h1{font-size:clamp(2.8rem,13vw,8rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.2rem}
-.hero p{max-width:580px;margin:0 auto 2.2rem;color:var(--muted);font-size:1.08rem}
-.hero p strong{color:var(--text)}
-.cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  --line:rgba(96,165,250,.24);
 
-.sh{margin-bottom:2.4rem}
-.sh h2{font-size:clamp(1.6rem,4vw,2.5rem)}
-.sh p{color:var(--muted);margin-top:.5rem;max-width:620px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:1.7rem;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
-.card::before{content:'';position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.card:hover{transform:translateY(-6px);box-shadow:var(--glow);border-color:var(--c1)}
-.card:hover::before{transform:scaleX(1)}
-.ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;margin-bottom:1rem;background:var(--card2)}
-.card small{color:var(--c2);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
-.card h3{font-size:1.1rem;margin-bottom:.2rem}
-.card p{color:var(--muted);font-size:.9rem}
+  --c1:#3b82f6;
+  --c2:#06b6d4;
+  --c3:#22d3ee;
+  --c4:#2dd4bf;
 
-/* about */
-.about{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
-@media(max-width:760px){.about{grid-template-columns:1fr}}
-.about p{color:var(--muted);margin-bottom:1rem}.about p strong{color:var(--text)}
-.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-.tag{padding:.3rem .9rem;border-radius:50px;font-size:.82rem;font-weight:500;background:var(--card2);border:1px solid var(--line);color:var(--c3)}
-.show{border-radius:28px;padding:2rem;background:var(--grad);color:#fff;box-shadow:var(--glow);position:relative;overflow:hidden}
-.show::after{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18);right:-60px;top:-60px}
-.live{font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:.4rem}
-.live i{width:8px;height:8px;border-radius:50%;background:#fff;animation:pl 1.4s infinite}
-@keyframes pl{50%{transform:scale(1.7);opacity:.4}}
-.show h3{font-size:4.2rem}.show h3 small{font-size:1rem}
-.show h4{font-family:'Sora';font-size:.95rem;margin:.3rem 0 1rem}
-.row{display:flex;align-items:center;gap:.7rem;font-size:.8rem;font-weight:600;margin-top:.5rem}
-.row b{width:44px}.bar{flex:1;height:6px;background:rgba(255,255,255,.3);border-radius:6px;overflow:hidden}
-.bar i{display:block;height:100%;background:#fff;border-radius:6px;animation:bl 1.8s ease both}
-@keyframes bl{from{width:0}}
+  --grad:linear-gradient(
+    120deg,
+    var(--c1),
+    var(--c2) 55%,
+    var(--c4)
+  );
 
-.focus .card{text-align:center}.focus .ic{margin-inline:auto;background:var(--grad);color:#fff}
+  --grad2:linear-gradient(
+    120deg,
+    var(--c3),
+    var(--c1)
+  );
 
-/* problem */
-.banner{display:grid;grid-template-columns:1fr auto;gap:2rem;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:2rem;margin-bottom:1.5rem}
-.banner p{color:var(--muted);margin-bottom:.8rem;font-size:.93rem}.banner p.b{color:var(--text);font-weight:600}
-.pills{display:flex;flex-direction:column;gap:.6rem}
-.pills span{padding:.6rem 1rem;border-radius:14px;background:var(--card2);border:1px solid var(--line);font-weight:600;font-size:.85rem;white-space:nowrap}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.5rem}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:1.5rem}
-@media(max-width:760px){.banner,.g2,.g3{grid-template-columns:1fr}.pills{flex-direction:row;flex-wrap:wrap}}
-.hd{font-family:'Sora';font-weight:700;font-size:1rem;margin-bottom:1rem;color:var(--c2)}
-.feat{display:flex;gap:.8rem;margin-bottom:.8rem}
-.feat b{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:.75rem;margin-top:3px}
-.feat strong{display:block;font-size:.93rem}.feat span{font-size:.82rem;color:var(--muted)}
-.cc{border-radius:20px;padding:1.3rem;margin-bottom:1rem;border:1px solid var(--line);background:var(--card)}
-.cc.off{border-color:rgba(245,158,11,.5)}.cc.on{border-color:rgba(34,211,238,.5)}
-.cc h3{font-size:1rem}.cc .s{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
-.cc ul,.list{padding-left:1.1rem;color:var(--muted);font-size:.86rem}
-.list{list-style:none;padding:0}.list li{margin-bottom:.4rem}
-.note{font-size:.78rem;color:#fbbf24;margin-top:.7rem}
-.esc{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:1rem 0 1.5rem}
-@media(max-width:700px){.esc{grid-template-columns:1fr}}
-.esc .card b{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
-.esc .card h3{font-size:1.5rem;margin:.2rem 0 .4rem}
-.tech{display:flex;gap:.6rem;padding:.4rem 0;border-bottom:1px solid var(--line);font-weight:500}.tech:last-child{border:0}
-.tagline{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-family:'Sora';font-weight:700;padding-top:1rem}
+  --glow:0 10px 40px rgba(59,130,246,.4);
+}
 
-/* team */
-.sub-t{font-weight:600;color:var(--muted);margin:1.6rem 0 1rem}
-.fac{display:flex;align-items:center;gap:1.5rem;max-width:520px}
-.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem}
-.av{width:92px;height:92px;border-radius:50%;padding:3px;background:var(--grad);flex-shrink:0;margin:0 auto 1rem}
-.fac .av{margin:0}
-.av img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top;background:var(--card2)}
-.person{text-align:center}.person h3{font-size:1rem}.person p,.fac p{font-size:.78rem;color:var(--c2);text-transform:uppercase;letter-spacing:.06em}
-.fac .tg{display:inline-block;margin-top:.4rem;padding:.15rem .7rem;border-radius:50px;border:1px solid var(--line);font-size:.72rem;color:var(--c3)}
-@media(max-width:560px){.fac{flex-direction:column;text-align:center}}
+body.light{
+  --bg:#f2f8ff;
+  --card:#fff;
+  --card2:#e3f0ff;
 
-/* submit */
-.sub{background:var(--grad);border-radius:30px;padding:clamp(2rem,5vw,3.5rem);color:#fff;display:grid;grid-template-columns:1fr auto;gap:2.5rem;align-items:center;box-shadow:var(--glow)}
-@media(max-width:740px){.sub{grid-template-columns:1fr;text-align:center}}
-.sub .bd{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
-.sub h3{font-size:clamp(1.4rem,3.5vw,2.1rem);margin-bottom:.6rem}
-.sub ol{margin:1rem 0 0 1.2rem;text-align:left}
-.sub .num{font-family:'Sora';font-size:1.2rem;font-weight:700;margin-bottom:.9rem;text-align:center}
-.btn-wa{background:#25d366;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-.btn-wa svg,.fab svg{width:20px;height:20px}
-footer{border-top:1px solid var(--line);padding-block:1.8rem;color:var(--muted);font-size:.82rem}
-.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
-.fab{position:fixed;right:20px;bottom:20px;width:52px;height:52px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(37,211,102,.5);z-index:90;transition:transform .25s}
-.fab:hover{transform:scale(1.12) rotate(-8deg)}
-.fab svg{width:26px;height:26px}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
-</style>
-</head>
-<body class="locked">
-<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  --text:#0b1b3a;
+  --muted:#5a6f94;
 
-<!-- SPLASH -->
-<div id="splash">
-  <div class="sp" id="sp1"><img src="itechno-logo.png" alt="iTECHNO"></div>
-  <div class="sp" id="sp2">
-    <div class="card-sp"><img src="splash-logo2.png" alt="Takshashila University × FACEPrep Campus"></div>
-    <p class="sp-label">Presents &nbsp;·&nbsp; HackVerse 2026</p>
-  </div>
-  <div class="sp-bar"></div>
-</div>
+  --line:rgba(37,99,235,.2);
 
-<!-- NAV -->
-<nav><div class="wrap nav-in">
-  <a href="#" class="brand"><i></i>HACKVERSE</a>
-  <div class="links"><a href="#details">Details</a><a href="#focus">Focus</a><a href="#problem">Challenge</a><a href="#team">Team</a><a href="#submit">Submit</a></div>
-  <div class="nav-r"><span class="badge">Event #01</span>
-    <button class="tt" id="tt" title="Toggle light/dark theme" aria-label="Toggle theme"><span class="knob" id="knob">🌙</span></button></div>
-</div></nav>
+  --c1:#2563eb;
+  --c2:#0891b2;
+  --c3:#0ea5e9;
+  --c4:#0d9488;
 
-<!-- HERO -->
-<header class="hero"><div class="wrap">
-  <span class="pill rv">Web Development Challenge &nbsp;·&nbsp; Event 01</span>
-  <h1 class="rv">HACK<span class="gt">VERSE</span></h1>
-  <p class="rv">An elite timed challenge. Build a <strong>functional, production-quality</strong> website from scratch using HTML, CSS &amp; JavaScript. Under pressure. Against the clock.</p>
-  <div class="cta rv"><a href="#details" class="btn btn-p">View Details</a><a href="#submit" class="btn btn-g">Submit Project</a></div>
-</div></header>
+  --glow:0 10px 40px rgba(37,99,235,.25);
+}
 
-<!-- DETAILS -->
-<section id="details"><div class="wrap">
-  <div class="sh rv"><p class="gt" style="font-weight:600">Event Specification</p><h2>Main Details</h2><p>Everything you need to know before competing.</p></div>
-  <div class="grid rv">
-    <div class="card"><div class="ic">🏆</div><small>Event Name</small><h3>HackVerse</h3><p>Web Development Challenge</p></div>
-    <div class="card"><div class="ic">👥</div><small>Team Composition</small><h3>2 – 3 Members</h3><p>Per competing team</p></div>
-    <div class="card"><div class="ic">⏱</div><small>Time Limit</small><h3>2 – 3 Hours</h3><p>Strict cutoff enforced</p></div>
-    <div class="card"><div class="ic">🎯</div><small>Challenge Type</small><h3>Live Build</h3><p>Build from scratch on-site</p></div>
-    <div class="card"><div class="ic">⚖️</div><small>Judging</small><h3>7 Criteria</h3><p>Design, code, UX &amp; more</p></div>
-    <div class="card"><div class="ic">📦</div><small>Submission</small><h3>ZIP via WhatsApp</h3><p>Compulsory for all teams</p></div>
-  </div>
-</div></section>
 
-<!-- ABOUT -->
-<section id="about"><div class="wrap about">
-  <div class="rv">
-    <div class="sh"><p class="gt" style="font-weight:600">Overview</p><h2>What is HackVerse?</h2></div>
-    <p>HackVerse is an intensive build challenge where teams create a <strong>fully functional website</strong> using HTML, CSS and JavaScript — within a fixed time window.</p>
-    <p>Participants are evaluated on technical execution, visual quality, and problem-solving under pressure. Only teams that meet the submission deadline will be judged.</p>
-    <div class="tags"><span class="tag">Live Event</span><span class="tag">Timed Build</span><span class="tag">Panel Judging</span><span class="tag">Compulsory Submission</span></div>
-  </div>
-  <div class="show rv">
-    <div class="live"><i></i>Active Event</div>
-    <h3>01<small> EVENT</small></h3>
-    <h4>HACKVERSE — WEB DEV CHALLENGE</h4>
-    <div class="row"><b>TEAM</b><div class="bar"><i style="width:60%"></i></div>2-3</div>
-    <div class="row"><b>TIME</b><div class="bar"><i style="width:85%"></i></div>3H</div>
-    <div class="row"><b>CRIT</b><div class="bar"><i style="width:100%"></i></div>07</div>
-  </div>
-</div></section>
+/* =========================================================
+   GLOBAL
+========================================================= */
 
-<!-- FOCUS -->
-<section id="focus" class="focus"><div class="wrap">
-  <div class="sh rv"><p class="gt" style="font-weight:600">Judging Criteria</p><h2>Focus Areas</h2><p>Six dimensions. Every point is contested.</p></div>
-  <div class="grid rv">
-    <div class="card"><div class="ic">🧱</div><h3>HTML</h3><p>Structure &amp; Semantics</p></div>
-    <div class="card"><div class="ic">🎨</div><h3>CSS</h3><p>Styling &amp; Layout</p></div>
-    <div class="card"><div class="ic">💡</div><h3>Creativity</h3><p>Concept &amp; Originality</p></div>
-    <div class="card"><div class="ic">✨</div><h3>UI / UX</h3><p>Design &amp; Usability</p></div>
-    <div class="card"><div class="ic">📱</div><h3>Responsive</h3><p>Cross-device Compatibility</p></div>
-    <div class="card"><div class="ic">🎤</div><h3>Presentation</h3><p>Delivery &amp; Overall Impact</p></div>
-  </div>
-</div></section>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-<!-- PROBLEM -->
-<section id="problem"><div class="wrap">
-  <div class="sh rv"><p class="gt" style="font-weight:600">Problem Statement</p><h2>Campus Safety &amp; Harassment Reporting System</h2><p>Build a secure, confidential digital platform that helps students report safety concerns — and automatically escalates repeated incidents to the right authority.</p></div>
+html{
+  scroll-behavior:smooth;
+}
 
-  <div class="banner rv">
-    <div>
-      <div class="hd">🛡️ Challenge Brief</div>
-      <p>Students may sometimes experience repeated unwanted following, harassment, or uncomfortable behaviour on or around campus. In many cases, they hesitate to report it because they are unsure whom to contact or are worried about their personal information being widely shared.</p>
-      <p class="b">We need a secure and simple digital reporting system that helps students confidentially report safety concerns and ensures the issue is escalated to the right authority when repeated reports are received.</p>
-    </div>
-    <div class="pills"><span>🔒 Your Safety Matters</span><span>👁️ Your Privacy Protected</span><span>🤝 Stronger Together</span></div>
-  </div>
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  overflow-x:hidden;
+}
 
-  <div class="g2 rv">
-    <div class="card">
-      <div class="hd">⭐ Key Features</div>
-      <div class="feat"><b>1</b><div><strong>Confidential Complaint Form</strong><span>Offline / Online Ragging</span></div></div>
-      <div class="feat"><b>2</b><div><strong>Incident Details</strong><span>Date, Time, Location, Description</span></div></div>
-      <div class="feat"><b>3</b><div><strong>Optional Evidence Upload</strong><span>Photo / Screenshot</span></div></div>
-      <div class="feat"><b>4</b><div><strong>Add Suspect Details</strong><span>Name, Department, Phone Number</span></div></div>
-      <div class="feat"><b>5</b><div><strong>Report Tracking</strong><span>Track your complaint status</span></div></div>
-      <div class="feat"><b>6</b><div><strong>Automatic Escalation System</strong><span>1st → HOD | 2nd → Dean | 3rd → Higher Authority</span></div></div>
-      <div class="feat"><b>7</b><div><strong>Role-Based Access &amp; Privacy</strong><span>Student / HOD / Dean / Higher Authority</span></div></div>
-    </div>
-    <div>
-      <div class="hd">📋 Two Types of Complaints</div>
-      <div class="cc off"><h3>🏫 Offline Ragging</h3><div class="s">Physical / In-Person Harassment</div>
-        <ul><li>Following / Stalking</li><li>Unwanted behaviour</li><li>Threats / Intimidation</li><li>Other offline incidents</li></ul></div>
-      <div class="cc on"><h3>💻 Online Ragging</h3><div class="s">Digital / Cyber Harassment</div>
-        <ul><li>Fake accounts</li><li>Obscene content</li><li>Online threats</li><li>Other cyber incidents</li></ul>
-        <p class="note">⚠️ Online ragging complaints must include screenshot proof (if available).</p></div>
-    </div>
-  </div>
+body.locked{
+  overflow:hidden;
+}
 
-  <div class="rv"><div class="hd" style="margin-bottom:.2rem">⚙️ Escalation Workflow</div><p style="color:var(--muted);font-size:.9rem">Based on repeated reports, the system automatically notifies the right authority.</p></div>
-  <div class="esc rv">
-    <div class="card"><b>1st Report</b><h3 style="color:var(--c3)">→ HOD</h3><p>Student submits complaint. HOD receives the report (without victim details).</p></div>
-    <div class="card"><b>2nd Report</b><h3 style="color:#fbbf24">→ Dean</h3><p>Dean receives the report (without victim details).</p></div>
-    <div class="card"><b>3rd Report</b><h3 style="color:#f43f5e">→ Higher Authority</h3><p>Higher authority receives the report with full details (if required).</p></div>
-  </div>
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-  <div class="g3 rv">
-    <div class="card"><div class="hd">💡 Why This Matters?</div>
-      <ul class="list"><li>✅ Builds a safer campus for everyone</li><li>✅ Encourages students to speak up without fear</li><li>✅ Helps authorities act faster and more effectively</li></ul></div>
-    <div class="card"><div class="hd">&lt;/&gt; Technology &amp; Team</div>
-      <div class="tech">💻 <span>HTML + CSS + JavaScript</span></div><div class="tech">👥 <span>2 – 3 Participants</span></div><div class="tech">⏱️ <span>2 Hours</span></div></div>
-    <div class="card"><div class="hd">✨ Optional Features</div>
-      <ul class="list"><li>✓ Anonymous reporting option</li><li>✓ Safe-zone map</li><li>✓ Incident timeline</li><li>✓ Report status tracking</li><li>✓ Authority notification panel</li><li>✓ Multi-language support</li><li>✓ Accessibility features</li><li>✓ Dark mode</li></ul></div>
-  </div>
-  <div class="tagline rv"><span class="gt">Report safely.</span><span class="gt">Protect privacy.</span><span class="gt">Escalate when it matters.</span></div>
-</div></section>
+img{
+  display:block;
+  max-width:100%;
+}
 
-<!-- TEAM -->
-<section id="team"><div class="wrap">
-  <div class="sh rv"><p class="gt" style="font-weight:600">Operations Team</p><h2>Coordinators</h2></div>
-  <p class="sub-t rv">Faculty Coordinator</p>
-  <div class="card fac rv">
-    <div class="av"><img src="coord-priyanshi.png" alt="Priyanshi"></div>
-    <div><h3>Priyanshi</h3><p>Faculty Coordinator — HackVerse</p><span class="tg">Faculty · In-Charge</span></div>
-  </div>
-  <p class="sub-t rv">Student Coordinators</p>
-  <div class="people rv">
-    <div class="card person"><div class="av"><img src="coord-farzana.png" alt="Farzana Kaleesha"></div><h3>Farzana Kaleesha</h3><p>Event Coordinator</p></div>
-    <div class="card person"><div class="av"><img src="coord-rajesh.png" alt="Rajesh. S"></div><h3>Rajesh. S</h3><p>Event Coordinator</p></div>
-    <div class="card person"><div class="av"><img src="coord-praveen.png" alt="Praveenkumar"></div><h3>Praveenkumar</h3><p>Event Coordinator</p></div>
-    <div class="card person"><div class="av"><img src="coord-keerthi.png" alt="Keerthi Vasan"></div><h3>Keerthi Vasan</h3><p>Event Coordinator</p></div>
-  </div>
-</div></section>
+h1,
+h2,
+h3{
+  font-family:'Sora',sans-serif;
+  line-height:1.15;
+}
 
-<!-- SUBMIT -->
-<section id="submit"><div class="wrap">
-  <div class="sh rv"><p class="gt" style="font-weight:600">Submission Protocol</p><h2>Submit Your Project</h2></div>
-  <div class="sub rv">
-    <div>
-      <p class="bd">● Compulsory for all teams</p>
-      <h3>Send ZIP via WhatsApp</h3>
-      <p>Every participant must send their finished project as a <strong>.zip file</strong> to the coordinator's WhatsApp number immediately upon completion. Teams that fail to submit before the cutoff will not be evaluated.</p>
-      <ol><li>Zip your entire project folder — include all files</li><li>Rename: <strong>TeamName_HackVerse.zip</strong></li><li>Send via WhatsApp to the number before time ends</li></ol>
-    </div>
-    <div>
-      <div class="num">+91 98406 94616</div>
-      <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/919840694616?text=Hi%21+Submitting+my+HackVerse+project+zip.">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-        Send on WhatsApp</a>
-    </div>
-  </div>
-</div></section>
+.wrap{
+  max-width:1120px;
+  margin:auto;
+  padding-inline:clamp(1.1rem,5vw,2.4rem);
+}
 
-<footer><div class="wrap foot"><b class="gt">HACKVERSE</b><span>Event #01 · Takshashila University × FACEPrep Campus · 2025</span></div></footer>
+section{
+  padding-block:clamp(3.5rem,8vw,6rem);
+}
 
-<a class="fab" href="https://wa.me/919840694616" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-</a>
+.gt{
+  background:var(--grad);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
-<script>
-const splash=document.getElementById('splash');
-function closeSplash(){splash.classList.add('hide');document.body.classList.remove('locked');setTimeout(()=>splash.remove(),800)}
-setTimeout(closeSplash,8500);splash.onclick=closeSplash;
+::view-transition-old(root),
+::view-transition-new(root){
+  animation:none;
+  mix-blend-mode:normal;
+}
 
-const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.07});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-const tt=document.getElementById('tt'),knob=document.getElementById('knob');
-function setTheme(l){document.body.classList.toggle('light',l);knob.textContent=l?'☀️':'🌙';tt.title=l?'Switch to Dark Theme':'Switch to Light Theme'}
-try{setTheme(localStorage.getItem('hv-theme')==='light')}catch(e){}
+/* =========================================================
+   BACKGROUND BLOBS
+========================================================= */
 
-function burst(x,y,light){
-  const set=light?['☀️','🌟','✨','🔆','🌈']:['🌙','⭐','✨','💫','🌌'];
-  for(let i=0;i<22;i++){
-    const s=document.createElement('span');s.className='spark';s.textContent=set[i%set.length];
-    s.style.left=x+'px';s.style.top=y+'px';document.body.appendChild(s);
-    const a=Math.random()*Math.PI*2,d=70+Math.random()*150;
-    s.animate([{transform:'translate(-50%,-50%) scale(.4)',opacity:1},
-      {transform:`translate(${Math.cos(a)*d}px,${Math.sin(a)*d}px) rotate(${Math.random()*540}deg) scale(1.4)`,opacity:0}],
-      {duration:900+Math.random()*500,easing:'cubic-bezier(.2,.8,.3,1)'}).onfinish=()=>s.remove();
+.blob{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:.35;
+  z-index:-1;
+  pointer-events:none;
+
+  animation:fl 14s ease-in-out infinite alternate;
+}
+
+.b1{
+  width:420px;
+  height:420px;
+  background:var(--c1);
+  top:-100px;
+  left:-100px;
+}
+
+.b2{
+  width:380px;
+  height:380px;
+  background:var(--c2);
+  bottom:-120px;
+  right:-80px;
+  animation-delay:-5s;
+}
+
+.b3{
+  width:300px;
+  height:300px;
+  background:var(--c3);
+  top:45%;
+  left:55%;
+  opacity:.2;
+  animation-delay:-9s;
+}
+
+body.light .blob{
+  opacity:.28;
+}
+
+@keyframes fl{
+  to{
+    transform:translate(60px,40px) scale(1.15);
   }
 }
-tt.addEventListener('click',()=>{
-  const r=tt.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
-  const goLight=!document.body.classList.contains('light');
-  const end=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
-  const apply=()=>{setTheme(goLight);try{localStorage.setItem('hv-theme',goLight?'light':'dark')}catch(e){}};
-  burst(x,y,goLight);
-  if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
-    document.startViewTransition(apply).ready.then(()=>document.documentElement.animate(
-      {clipPath:[`circle(0px at ${x}px ${y}px)`,`circle(${end}px at ${x}px ${y}px)`]},
-      {duration:850,easing:'ease-in-out',pseudoElement:'::view-transition-new(root)'}));
-  }else apply();
-});
+
+
+/* =========================================================
+   SPLASH SCREEN
+========================================================= */
+
+#splash{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+
+  background:#050b1f;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:
+    opacity .7s,
+    visibility .7s;
+
+  cursor:pointer;
+}
+
+#splash.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.sp{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  gap:1.3rem;
+
+  opacity:0;
+}
+
+#sp1{
+  animation:
+    in .8s ease .3s forwards,
+    out .7s ease 3.4s forwards;
+}
+
+#sp2{
+  animation:
+    in .8s ease 4.3s forwards,
+    out .7s ease 7.5s forwards;
+}
+
+#sp1 img{
+  width:min(560px,80vw);
+
+  filter:
+    drop-shadow(0 0 50px rgba(59,130,246,.8))
+    drop-shadow(0 0 100px rgba(6,182,212,.4));
+}
+
+.card-sp{
+  background:
+    linear-gradient(
+      135deg,
+      #0b1533,
+      #050b1f
+    );
+
+  border:1px solid rgba(6,182,212,.5);
+
+  border-radius:22px;
+
+  padding:
+    clamp(1.2rem,4vw,2rem)
+    clamp(1.6rem,6vw,3.2rem);
+
+  box-shadow:
+    0 0 70px rgba(59,130,246,.4);
+}
+
+.card-sp img{
+  width:min(560px,78vw);
+
+  filter:
+    invert(1)
+    hue-rotate(180deg)
+    contrast(1.1)
+    saturate(1.2);
+}
+
+.sp-label{
+  color:#9c98c8;
+
+  font-size:.85rem;
+
+  letter-spacing:.25em;
+
+  text-transform:uppercase;
+}
+
+.sp-bar{
+  position:absolute;
+
+  bottom:0;
+  left:0;
+
+  height:4px;
+
+  background:var(--grad);
+
+  width:0;
+
+  animation:
+    ld 8.4s linear .2s forwards;
+}
+
+@keyframes in{
+  to{
+    opacity:1;
+  }
+}
+
+@keyframes out{
+  from{
+    opacity:1;
+  }
+
+  to{
+    opacity:0;
+  }
+}
+
+@keyframes ld{
+  to{
+    width:100%;
+  }
+}
+
+
+/* =========================================================
+   PROFESSIONAL NAVBAR
+========================================================= */
+
+.main-nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  padding:12px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,11,31,.94),
+      rgba(5,11,31,.76)
+    );
+
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+
+  border-bottom:1px solid rgba(96,165,250,.12);
+
+  transition:
+    background .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+body.light .main-nav{
+  background:rgba(242,248,255,.88);
+
+  border-bottom:
+    1px solid rgba(37,99,235,.12);
+}
+
+.main-nav.scrolled{
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.2);
+
+  border-bottom-color:
+    rgba(59,130,246,.28);
+}
+
+
+/* NAV CONTAINER */
+
+.nav-container{
+  width:min(1180px,calc(100% - 32px));
+
+  margin:auto;
+
+  min-height:60px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:25px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.nav-logo{
+  display:flex;
+
+  align-items:center;
+
+  gap:11px;
+
+  flex-shrink:0;
+
+  font-family:'Sora',sans-serif;
+
+  font-weight:800;
+
+  letter-spacing:.08em;
+}
+
+.logo-mark{
+  position:relative;
+
+  width:32px;
+  height:32px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:3px;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59,130,246,.2),
+      rgba(6,182,212,.12)
+    );
+
+  border:
+    1px solid rgba(59,130,246,.4);
+
+  box-shadow:
+    0 0 25px rgba(59,130,246,.25);
+}
+
+.logo-mark span{
+  display:block;
+
+  width:4px;
+
+  border-radius:5px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #60a5fa,
+      #06b6d4
+    );
+
+  box-shadow:
+    0 0 10px rgba(6,182,212,.7);
+}
+
+.logo-mark span:nth-child(1){
+  height:9px;
+}
+
+.logo-mark span:nth-child(2){
+  height:17px;
+}
+
+.logo-mark span:nth-child(3){
+  height:13px;
+}
+
+.logo-text{
+  color:var(--text);
+
+  font-size:1rem;
+}
+
+.logo-text span{
+  background:var(--grad);
+
+  -webkit-background-clip:text;
+
+  background-clip:text;
+
+  color:transparent;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-menu{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:6px;
+
+  margin-left:auto;
+}
+
+.nav-link{
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  padding:9px 14px;
+
+  border-radius:10px;
+
+  color:var(--muted);
+
+  font-size:.88rem;
+
+  font-weight:500;
+
+  transition:
+    color .25s ease,
+    background .25s ease,
+    transform .25s ease;
+}
+
+.nav-link span{
+  font-family:'Sora',sans-serif;
+
+  font-size:.62rem;
+
+  color:rgba(138,160,200,.6);
+
+  transition:
+    color .25s ease;
+}
+
+.nav-link:hover{
+  color:var(--text);
+
+  background:
+    rgba(59,130,246,.08);
+
+  transform:
+    translateY(-1px);
+}
+
+.nav-link:hover span{
+  color:var(--c2);
+}
+
+.nav-link.active{
+  color:var(--text);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59,130,246,.13),
+      rgba(6,182,212,.07)
+    );
+}
+
+.nav-link.active span{
+  color:var(--c2);
+}
+
+.nav-link.active::after{
+  content:"";
+
+  position:absolute;
+
+  left:14px;
+  right:14px;
+
+  bottom:2px;
+
+  height:2px;
+
+  border-radius:5px;
+
+  background:var(--grad);
+
+  box-shadow:
+    0 0 10px rgba(6,182,212,.8);
+}
+
+
+/* =========================================================
+   NAV ACTIONS
+========================================================= */
+
+.nav-actions{
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  flex-shrink:0;
+}
+
+
+/* LIVE */
+
+.event-status{
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  padding:7px 11px;
+
+  border-radius:50px;
+
+  border:
+    1px solid rgba(34,211,238,.2);
+
+  background:
+    rgba(6,182,212,.06);
+
+  color:#67e8f9;
+
+  font-family:'Sora',sans-serif;
+
+  font-size:.65rem;
+
+  font-weight:700;
+
+  letter-spacing:.08em;
+}
+
+.status-dot{
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:#22d3ee;
+
+  box-shadow:
+    0 0 0 4px rgba(34,211,238,.1),
+    0 0 12px #22d3ee;
+
+  animation:
+    livePulse 1.7s infinite;
+}
+
+@keyframes livePulse{
+
+  0%,100%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  50%{
+    opacity:.45;
+    transform:scale(.75);
+  }
+
+}
+
+
+/* SUBMIT */
+
+.nav-cta{
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  padding:9px 17px;
+
+  border-radius:50px;
+
+  color:#fff;
+
+  background:var(--grad);
+
+  font-size:.82rem;
+
+  font-weight:600;
+
+  box-shadow:
+    0 5px 22px rgba(59,130,246,.25);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.nav-cta span{
+  font-size:1rem;
+
+  transition:
+    transform .25s ease;
+}
+
+.nav-cta:hover{
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 8px 30px rgba(59,130,246,.45);
+}
+
+.nav-cta:hover span{
+  transform:
+    translate(2px,-2px);
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+.theme-toggle{
+  position:relative;
+
+  width:43px;
+  height:43px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(96,165,250,.28);
+
+  background:var(--card);
+
+  display:grid;
+
+  place-items:center;
+
+  cursor:pointer;
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease;
+}
+
+.theme-toggle:hover{
+  transform:
+    rotate(12deg)
+    scale(1.06);
+
+  border-color:var(--c2);
+
+  box-shadow:
+    0 0 20px rgba(6,182,212,.2);
+}
+
+.theme-icon{
+  width:28px;
+  height:28px;
+
+  border-radius:50%;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1d4ed8,
+      #06b6d4
+    );
+
+  box-shadow:
+    0 0 15px rgba(59,130,246,.45);
+
+  transition:
+    transform .5s cubic-bezier(.5,1.6,.4,1),
+    background .4s;
+}
+
+body.light .theme-icon{
+  transform:
+    rotate(360deg);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fde68a,
+      #f59e0b
+    );
+
+  box-shadow:
+    0 0 15px rgba(245,158,11,.35);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-toggle{
+  display:none;
+
+  width:43px;
+  height:43px;
+
+  padding:10px;
+
+  border-radius:12px;
+
+  border:
+    1px solid rgba(96,165,250,.25);
+
+  background:var(--card);
+
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  display:block;
+
+  width:20px;
+  height:2px;
+
+  margin:4px auto;
+
+  border-radius:5px;
+
+  background:var(--text);
+
+  transition:
+    transform .3s ease,
+    opacity .3s ease;
+}
+
+.menu-toggle.open span:nth-child(1){
+  transform:
+    translateY(6px)
+    rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2){
+  opacity:0;
+}
+
+.menu-toggle.open span:nth-child(3){
+  transform:
+    translateY(-6px)
+    rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+  display:none;
+
+  max-height:0;
+
+  overflow:hidden;
+
+  opacity:0;
+
+  transition:
+    max-height .45s ease,
+    opacity .3s ease;
+}
+
+.mobile-menu.open{
+  max-height:500px;
+
+  opacity:1;
+}
+
+.mobile-menu-inner{
+  width:min(1180px,calc(100% - 32px));
+
+  margin:10px auto 0;
+
+  padding:10px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11,21,51,.98),
+      rgba(5,11,31,.98)
+    );
+
+  border:
+    1px solid rgba(96,165,250,.18);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.3);
+}
+
+body.light .mobile-menu-inner{
+  background:
+    rgba(255,255,255,.97);
+}
+
+.mobile-link{
+  display:grid;
+
+  grid-template-columns:
+    35px 1fr auto;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:15px;
+
+  border-radius:13px;
+
+  color:var(--text);
+
+  border-bottom:
+    1px solid var(--line);
+
+  transition:
+    background .25s ease,
+    padding-left .25s ease;
+}
+
+.mobile-link:hover{
+  background:
+    rgba(59,130,246,.08);
+
+  padding-left:20px;
+}
+
+.mobile-number{
+  color:var(--c2);
+
+  font-family:'Sora',sans-serif;
+
+  font-size:.7rem;
+}
+
+.mobile-link .arrow{
+  color:var(--muted);
+
+  transition:
+    transform .25s ease,
+    color .25s ease;
+}
+
+.mobile-link:hover .arrow{
+  color:var(--c2);
+
+  transform:
+    translate(3px,-3px);
+}
+
+.mobile-submit{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  margin-top:10px;
+
+  padding:14px 17px;
+
+  border-radius:13px;
+
+  color:#fff;
+
+  background:var(--grad);
+
+  font-weight:600;
+
+  box-shadow:
+    0 8px 25px rgba(59,130,246,.25);
+}
+
+
+/* =========================================================
+   GENERAL BUTTONS
+========================================================= */
+
+.btn{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:.5rem;
+
+  padding:.85rem 1.8rem;
+
+  border-radius:50px;
+
+  font-weight:600;
+
+  border:0;
+
+  cursor:pointer;
+
+  font-family:inherit;
+
+  font-size:1rem;
+
+  transition:
+    transform .25s,
+    box-shadow .25s;
+}
+
+.btn:hover{
+  transform:
+    translateY(-3px)
+    scale(1.03);
+}
+
+.btn-p{
+  background:var(--grad);
+
+  color:#fff;
+
+  box-shadow:var(--glow);
+}
+
+.btn-g{
+  border:2px solid var(--c1);
+
+  color:var(--text);
+}
+
+.btn-g:hover{
+  background:var(--c1);
+
+  color:#fff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  min-height:90vh;
+
+  display:flex;
+
+  align-items:center;
+
+  text-align:center;
+}
+
+.pill{
+  display:inline-block;
+
+  padding:.4rem 1.1rem;
+
+  border-radius:50px;
+
+  border:
+    1px solid var(--line);
+
+  background:var(--card);
+
+  font-size:.85rem;
+
+  color:var(--c3);
+
+  margin-bottom:1.4rem;
+}
+
+.hero h1{
+  font-size:
+    clamp(2.8rem,13vw,8rem);
+
+  font-weight:800;
+
+  letter-spacing:-.02em;
+
+  margin-bottom:1.2rem;
+}
+
+.hero p{
+  max-width:580px;
+
+  margin:
+    0 auto 2.2rem;
+
+  color:var(--muted);
+
+  font-size:1.08rem;
+}
+
+.hero p strong{
+  color:var(--text);
+}
+
+.cta{
+  display:flex;
+
+  gap:1rem;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.sh{
+  margin-bottom:2.4rem;
+}
+
+.sh h2{
+  font-size:
+    clamp(1.6rem,4vw,2.5rem);
+}
+
+.sh p{
+  color:var(--muted);
+
+  margin-top:.5rem;
+
+  max-width:620px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+  gap:1.2rem;
+}
+
+.card{
+  background:var(--card);
+
+  border:
+    1px solid var(--line);
+
+  border-radius:22px;
+
+  padding:1.7rem;
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:
+    transform .3s,
+    box-shadow .3s,
+    border-color .3s;
+}
+
+.card::before{
+  content:'';
+
+  position:absolute;
+
+  inset:0 0 auto 0;
+
+  height:4px;
+
+  background:var(--grad);
+
+  transform:
+    scaleX(0);
+
+  transform-origin:left;
+
+  transition:
+    transform .4s;
+}
+
+.card:hover{
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    var(--glow);
+
+  border-color:
+    var(--c1);
+}
+
+.card:hover::before{
+  transform:
+    scaleX(1);
+}
+
+.ic{
+  width:46px;
+  height:46px;
+
+  border-radius:14px;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:1.4rem;
+
+  margin-bottom:1rem;
+
+  background:var(--card2);
+}
+
+.card small{
+  color:var(--c2);
+
+  font-weight:600;
+
+  font-size:.78rem;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
+}
+
+.card h3{
+  font-size:1.1rem;
+
+  margin-bottom:.2rem;
+}
+
+.card p{
+  color:var(--muted);
+
+  font-size:.9rem;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+  display:grid;
+
+  grid-template-columns:
+    1.1fr .9fr;
+
+  gap:3rem;
+
+  align-items:center;
+}
+
+.about p{
+  color:var(--muted);
+
+  margin-bottom:1rem;
+}
+
+.about p strong{
+  color:var(--text);
+}
+
+.tags{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:.5rem;
+
+  margin-top:1rem;
+}
+
+.tag{
+  padding:.3rem .9rem;
+
+  border-radius:50px;
+
+  font-size:.82rem;
+
+  font-weight:500;
+
+  background:var(--card2);
+
+  border:
+    1px solid var(--line);
+
+  color:var(--c3);
+}
+
+.show{
+  border-radius:28px;
+
+  padding:2rem;
+
+  background:var(--grad);
+
+  color:#fff;
+
+  box-shadow:var(--glow);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.show::after{
+  content:'';
+
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,.18);
+
+  right:-60px;
+
+  top:-60px;
+}
+
+.live{
+  font-size:.8rem;
+
+  font-weight:600;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:.4rem;
+}
+
+.live i{
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:#fff;
+
+  animation:
+    pl 1.4s infinite;
+}
+
+@keyframes pl{
+
+  50%{
+    transform:scale(1.7);
+
+    opacity:.4;
+  }
+
+}
+
+.show h3{
+  font-size:4.2rem;
+}
+
+.show h3 small{
+  font-size:1rem;
+}
+
+.show h4{
+  font-family:'Sora';
+
+  font-size:.95rem;
+
+  margin:.3rem 0 1rem;
+}
+
+.row{
+  display:flex;
+
+  align-items:center;
+
+  gap:.7rem;
+
+  font-size:.8rem;
+
+  font-weight:600;
+
+  margin-top:.5rem;
+}
+
+.row b{
+  width:44px;
+}
+
+.bar{
+  flex:1;
+
+  height:6px;
+
+  background:
+    rgba(255,255,255,.3);
+
+  border-radius:6px;
+
+  overflow:hidden;
+}
+
+.bar i{
+  display:block;
+
+  height:100%;
+
+  background:#fff;
+
+  border-radius:6px;
+
+  animation:
+    bl 1.8s ease both;
+}
+
+@keyframes bl{
+  from{
+    width:0;
+  }
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.focus .card{
+  text-align:center;
+}
+
+.focus .ic{
+  margin-inline:auto;
+
+  background:var(--grad);
+
+  color:#fff;
+}
+
+
+/* =========================================================
+   PROBLEM
+========================================================= */
+
+.banner{
+  display:grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap:2rem;
+
+  background:var(--card);
+
+  border:
+    1px solid var(--line);
+
+  border-radius:26px;
+
+  padding:2rem;
+
+  margin-bottom:1.5rem;
+}
+
+.banner p{
+  color:var(--muted);
+
+  margin-bottom:.8rem;
+
+  font-size:.93rem;
+}
+
+.banner p.b{
+  color:var(--text);
+
+  font-weight:600;
+}
+
+.pills{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:.6rem;
+}
+
+.pills span{
+  padding:.6rem 1rem;
+
+  border-radius:14px;
+
+  background:var(--card2);
+
+  border:
+    1px solid var(--line);
+
+  font-weight:600;
+
+  font-size:.85rem;
+
+  white-space:nowrap;
+}
+
+.g2{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:1.2rem;
+
+  margin-bottom:1.5rem;
+}
+
+.g3{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:1.2rem;
+
+  margin-bottom:1.5rem;
+}
+
+.hd{
+  font-family:'Sora';
+
+  font-weight:700;
+
+  font-size:1rem;
+
+  margin-bottom:1rem;
+
+  color:var(--c2);
+}
+
+.feat{
+  display:flex;
+
+  gap:.8rem;
+
+  margin-bottom:.8rem;
+}
+
+.feat b{
+  flex-shrink:0;
+
+  width:26px;
+  height:26px;
+
+  border-radius:50%;
+
+  background:var(--grad);
+
+  color:#fff;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:.75rem;
+
+  margin-top:3px;
+}
+
+.feat strong{
+  display:block;
+
+  font-size:.93rem;
+}
+
+.feat span{
+  font-size:.82rem;
+
+  color:var(--muted);
+}
+
+.cc{
+  border-radius:20px;
+
+  padding:1.3rem;
+
+  margin-bottom:1rem;
+
+  border:
+    1px solid var(--line);
+
+  background:var(--card);
+}
+
+.cc.off{
+  border-color:
+    rgba(245,158,11,.5);
+}
+
+.cc.on{
+  border-color:
+    rgba(34,211,238,.5);
+}
+
+.cc h3{
+  font-size:1rem;
+}
+
+.cc .s{
+  font-size:.75rem;
+
+  color:var(--muted);
+
+  text-transform:uppercase;
+
+  letter-spacing:.06em;
+
+  margin-bottom:.6rem;
+}
+
+.cc ul,
+.list{
+  padding-left:1.1rem;
+
+  color:var(--muted);
+
+  font-size:.86rem;
+}
+
+.list{
+  list-style:none;
+
+  padding:0;
+}
+
+.list li{
+  margin-bottom:.4rem;
+}
+
+.note{
+  font-size:.78rem;
+
+  color:#fbbf24;
+
+  margin-top:.7rem;
+}
+
+.esc{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:1.2rem;
+
+  margin:1rem 0 1.5rem;
+}
+
+.esc .card b{
+  font-size:.75rem;
+
+  color:var(--muted);
+
+  text-transform:uppercase;
+
+  letter-spacing:.1em;
+}
+
+.esc .card h3{
+  font-size:1.5rem;
+
+  margin:.2rem 0 .4rem;
+}
+
+.tech{
+  display:flex;
+
+  gap:.6rem;
+
+  padding:.4rem 0;
+
+  border-bottom:
+    1px solid var(--line);
+
+  font-weight:500;
+}
+
+.tech:last-child{
+  border:0;
+}
+
+.tagline{
+  display:flex;
+
+  justify-content:center;
+
+  gap:1.5rem;
+
+  flex-wrap:wrap;
+
+  font-family:'Sora';
+
+  font-weight:700;
+
+  padding-top:1rem;
+}
+
+
+/* =========================================================
+   TEAM
+========================================================= */
+
+.sub-t{
+  font-weight:600;
+
+  color:var(--muted);
+
+  margin:1.6rem 0 1rem;
+}
+
+.fac{
+  display:flex;
+
+  align-items:center;
+
+  gap:1.5rem;
+
+  max-width:520px;
+}
+
+.people{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+  gap:1.2rem;
+}
+
+.av{
+  width:92px;
+  height:92px;
+
+  border-radius:50%;
+
+  padding:3px;
+
+  background:var(--grad);
+
+  flex-shrink:0;
+
+  margin:0 auto 1rem;
+}
+
+.fac .av{
+  margin:0;
+}
+
+.av img{
+  width:100%;
+  height:100%;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  object-position:top;
+
+  background:var(--card2);
+}
+
+.person{
+  text-align:center;
+}
+
+.person h3{
+  font-size:1rem;
+}
+
+.person p,
+.fac p{
+  font-size:.78rem;
+
+  color:var(--c2);
+
+  text-transform:uppercase;
+
+  letter-spacing:.06em;
+}
+
+.fac .tg{
+  display:inline-block;
+
+  margin-top:.4rem;
+
+  padding:.15rem .7rem;
+
+  border-radius:50px;
+
+  border:
+    1px solid var(--line);
+
+  font-size:.72rem;
+
+  color:var(--c3);
+}
+
+
+/* =========================================================
+   SUBMISSION
+========================================================= */
+
+.sub{
+  background:var(--grad);
+
+  border-radius:30px;
+
+  padding:
+    clamp(2rem,5vw,3.5rem);
+
+  color:#fff;
+
+  display:grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap:2.5rem;
+
+  align-items:center;
+
+  box-shadow:var(--glow);
+}
+
+.sub .bd{
+  font-size:.78rem;
+
+  font-weight:700;
+
+  letter-spacing:.1em;
+
+  text-transform:uppercase;
+
+  margin-bottom:.4rem;
+}
+
+.sub h3{
+  font-size:
+    clamp(1.4rem,3.5vw,2.1rem);
+
+  margin-bottom:.6rem;
+}
+
+.sub ol{
+  margin:1rem 0 0 1.2rem;
+
+  text-align:left;
+}
+
+.sub .num{
+  font-family:'Sora';
+
+  font-size:1.2rem;
+
+  font-weight:700;
+
+  margin-bottom:.9rem;
+
+  text-align:center;
+}
+
+.btn-wa{
+  background:#25d366;
+
+  color:#fff;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.25);
+}
+
+.btn-wa svg,
+.fab svg{
+  width:20px;
+  height:20px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  border-top:
+    1px solid var(--line);
+
+  padding-block:1.8rem;
+
+  color:var(--muted);
+
+  font-size:.82rem;
+}
+
+.foot{
+  display:flex;
+
+  justify-content:space-between;
+
+  flex-wrap:wrap;
+
+  gap:.6rem;
+}
+
+
+/* =========================================================
+   WHATSAPP FLOAT BUTTON
+========================================================= */
+
+.fab{
+  position:fixed;
+
+  right:20px;
+  bottom:20px;
+
+  width:52px;
+  height:52px;
+
+  border-radius:50%;
+
+  background:#25d366;
+
+  color:#fff;
+
+  display:grid;
+
+  place-items:center;
+
+  box-shadow:
+    0 6px 20px rgba(37,211,102,.5);
+
+  z-index:90;
+
+  transition:
+    transform .25s;
+}
+
+.fab:hover{
+  transform:
+    scale(1.12)
+    rotate(-8deg);
+}
+
+.fab svg{
+  width:26px;
+  height:26px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.rv{
+  opacity:0;
+
+  transform:
+    translateY(24px);
+
+  transition:
+    opacity .7s,
+    transform .7s;
+}
+
+.rv.in{
+  opacity:1;
+
+  transform:none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+  .desktop-menu{
+    gap:0;
+  }
+
+  .nav-link{
+    padding-inline:9px;
+  }
+
+  .nav-link span{
+    display:none;
+  }
+
+}
+
+@media(max-width:760px){
+
+  .desktop-menu{
+    display:none;
+  }
+
+  .event-status{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .mobile-menu{
+    display:block;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .banner,
+  .g2,
+  .g3{
+    grid-template-columns:1fr;
+  }
+
+  .pills{
+    flex-direction:row;
+
+    flex-wrap:wrap;
+  }
+
+  .esc{
+    grid-template-columns:1fr;
+  }
+
+  .sub{
+    grid-template-columns:1fr;
+
+    text-align:center;
+  }
+
+}
+
+@media(max-width:560px){
+
+  .fac{
+    flex-direction:column;
+
+    text-align:center;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .nav-container{
+    width:calc(100% - 22px);
+  }
+
+  .nav-logo{
+    gap:8px;
+  }
+
+  .logo-mark{
+    width:29px;
+    height:29px;
+  }
+
+  .logo-text{
+    font-size:.88rem;
+  }
+
+  .nav-cta{
+    padding:8px 13px;
+
+    font-size:.75rem;
+  }
+
+  .theme-toggle,
+  .menu-toggle{
+    width:39px;
+    height:39px;
+  }
+
+  .badge{
+    display:none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+
+    transition:none!important;
+  }
+
+  .rv{
+    opacity:1;
+
+    transform:none;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body class="locked">
+
+<!-- BACKGROUND -->
+
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+
+
+<!-- =====================================================
+     SPLASH
+===================================================== -->
+
+<div id="splash">
+
+  <div class="sp" id="sp1">
+
+    <img
+      src="itechno-logo.png"
+      alt="iTECHNO"
+    >
+
+  </div>
+
+
+  <div class="sp" id="sp2">
+
+    <div class="card-sp">
+
+      <img
+        src="splash-logo2.png"
+        alt="Takshashila University × FACEPrep Campus"
+      >
+
+    </div>
+
+    <p class="sp-label">
+      Presents
+      &nbsp;·&nbsp;
+      HackVerse 2026
+    </p>
+
+  </div>
+
+
+  <div class="sp-bar"></div>
+
+</div>
+
+
+<!-- =====================================================
+     PROFESSIONAL NAVBAR
+===================================================== -->
+
+<nav class="main-nav" id="mainNav">
+
+  <div class="nav-container">
+
+
+    <!-- LOGO -->
+
+    <a href="#" class="nav-logo">
+
+      <span class="logo-mark">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </span>
+
+      <span class="logo-text">
+        HACK<span>VERSE</span>
+      </span>
+
+    </a>
+
+
+    <!-- DESKTOP MENU -->
+
+    <div class="desktop-menu">
+
+      <a
+        href="#details"
+        class="nav-link active"
+      >
+
+        <span>01</span>
+        Details
+
+      </a>
+
+
+      <a
+        href="#focus"
+        class="nav-link"
+      >
+
+        <span>02</span>
+        Focus
+
+      </a>
+
+
+      <a
+        href="#problem"
+        class="nav-link"
+      >
+
+        <span>03</span>
+        Challenge
+
+      </a>
+
+
+      <a
+        href="#team"
+        class="nav-link"
+      >
+
+        <span>04</span>
+        Team
+
+      </a>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="nav-actions">
+
+
+      <!-- LIVE -->
+
+      <div class="event-status">
+
+        <span class="status-dot"></span>
+
+        <span>LIVE</span>
+
+      </div>
+
+
+      <!-- SUBMIT -->
+
+      <a
+        href="#submit"
+        class="nav-cta"
+      >
+
+        Submit
+
+        <span>↗</span>
+
+      </a>
+
+
+      <!-- THEME -->
+
+      <button
+        class="theme-toggle"
+        id="tt"
+        title="Toggle theme"
+        aria-label="Toggle theme"
+      >
+
+        <span
+          class="theme-icon"
+          id="knob"
+        >
+          🌙
+        </span>
+
+      </button>
+
+
+      <!-- MOBILE MENU -->
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================================
+       MOBILE MENU
+  ==================================================== -->
+
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+    <div class="mobile-menu-inner">
+
+
+      <a
+        href="#details"
+        class="mobile-link"
+      >
+
+        <span class="mobile-number">
+          01
+        </span>
+
+        <span>
+          Details
+        </span>
+
+        <span class="arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <a
+        href="#focus"
+        class="mobile-link"
+      >
+
+        <span class="mobile-number">
+          02
+        </span>
+
+        <span>
+          Focus Areas
+        </span>
+
+        <span class="arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <a
+        href="#problem"
+        class="mobile-link"
+      >
+
+        <span class="mobile-number">
+          03
+        </span>
+
+        <span>
+          Challenge
+        </span>
+
+        <span class="arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <a
+        href="#team"
+        class="mobile-link"
+      >
+
+        <span class="mobile-number">
+          04
+        </span>
+
+        <span>
+          Team
+        </span>
+
+        <span class="arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <a
+        href="#submit"
+        class="mobile-submit"
+      >
+
+        Submit Project
+
+        <span>
+          ↗
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+  <div class="wrap">
+
+    <span class="pill rv">
+      Web Development Challenge
+      &nbsp;·&nbsp;
+      Event 01
+    </span>
+
+
+    <h1 class="rv">
+
+      HACK<span class="gt">
+        VERSE
+      </span>
+
+    </h1>
+
+
+    <p class="rv">
+
+      An elite timed challenge.
+
+      Build a
+      <strong>
+        functional, production-quality
+      </strong>
+
+      website from scratch using
+      HTML, CSS &amp; JavaScript.
+
+      Under pressure.
+      Against the clock.
+
+    </p>
+
+
+    <div class="cta rv">
+
+      <a
+        href="#details"
+        class="btn btn-p"
+      >
+        View Details
+      </a>
+
+
+      <a
+        href="#submit"
+        class="btn btn-g"
+      >
+        Submit Project
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =====================================================
+     DETAILS
+===================================================== -->
+
+<section id="details">
+
+  <div class="wrap">
+
+
+    <div class="sh rv">
+
+      <p
+        class="gt"
+        style="font-weight:600"
+      >
+        Event Specification
+      </p>
+
+      <h2>
+        Main Details
+      </h2>
+
+      <p>
+        Everything you need to know
+        before competing.
+      </p>
+
+    </div>
+
+
+    <div class="grid rv">
+
+
+      <div class="card">
+
+        <div class="ic">
+          🏆
+        </div>
+
+        <small>
+          Event Name
+        </small>
+
+        <h3>
+          HackVerse
+        </h3>
+
+        <p>
+          Web Development Challenge
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          👥
+        </div>
+
+        <small>
+          Team Composition
+        </small>
+
+        <h3>
+          2 – 3 Members
+        </h3>
+
+        <p>
+          Per competing team
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          ⏱
+        </div>
+
+        <small>
+          Time Limit
+        </small>
+
+        <h3>
+          2 – 3 Hours
+        </h3>
+
+        <p>
+          Strict cutoff enforced
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          🎯
+        </div>
+
+        <small>
+          Challenge Type
+        </small>
+
+        <h3>
+          Live Build
+        </h3>
+
+        <p>
+          Build from scratch on-site
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          ⚖️
+        </div>
+
+        <small>
+          Judging
+        </small>
+
+        <h3>
+          7 Criteria
+        </h3>
+
+        <p>
+          Design, code, UX &amp; more
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          📦
+        </div>
+
+        <small>
+          Submission
+        </small>
+
+        <h3>
+          ZIP via WhatsApp
+        </h3>
+
+        <p>
+          Compulsory for all teams
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+  <div class="wrap about">
+
+
+    <div class="rv">
+
+      <div class="sh">
+
+        <p
+          class="gt"
+          style="font-weight:600"
+        >
+          Overview
+        </p>
+
+        <h2>
+          What is HackVerse?
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        HackVerse is an intensive build
+        challenge where teams create a
+        <strong>
+          fully functional website
+        </strong>
+
+        using HTML, CSS and JavaScript —
+        within a fixed time window.
+
+      </p>
+
+
+      <p>
+
+        Participants are evaluated on
+        technical execution, visual quality,
+        and problem-solving under pressure.
+
+        Only teams that meet the submission
+        deadline will be judged.
+
+      </p>
+
+
+      <div class="tags">
+
+        <span class="tag">
+          Live Event
+        </span>
+
+        <span class="tag">
+          Timed Build
+        </span>
+
+        <span class="tag">
+          Panel Judging
+        </span>
+
+        <span class="tag">
+          Compulsory Submission
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="show rv">
+
+      <div class="live">
+
+        <i></i>
+
+        Active Event
+
+      </div>
+
+
+      <h3>
+        01
+        <small>
+          EVENT
+        </small>
+      </h3>
+
+
+      <h4>
+        HACKVERSE — WEB DEV CHALLENGE
+      </h4>
+
+
+      <div class="row">
+
+        <b>
+          TEAM
+        </b>
+
+        <div class="bar">
+          <i style="width:60%"></i>
+        </div>
+
+        2-3
+
+      </div>
+
+
+      <div class="row">
+
+        <b>
+          TIME
+        </b>
+
+        <div class="bar">
+          <i style="width:85%"></i>
+        </div>
+
+        3H
+
+      </div>
+
+
+      <div class="row">
+
+        <b>
+          CRIT
+        </b>
+
+        <div class="bar">
+          <i style="width:100%"></i>
+        </div>
+
+        07
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOCUS
+===================================================== -->
+
+<section
+  id="focus"
+  class="focus"
+>
+
+  <div class="wrap">
+
+
+    <div class="sh rv">
+
+      <p
+        class="gt"
+        style="font-weight:600"
+      >
+        Judging Criteria
+      </p>
+
+      <h2>
+        Focus Areas
+      </h2>
+
+      <p>
+        Six dimensions.
+        Every point is contested.
+      </p>
+
+    </div>
+
+
+    <div class="grid rv">
+
+
+      <div class="card">
+
+        <div class="ic">
+          🧱
+        </div>
+
+        <h3>
+          HTML
+        </h3>
+
+        <p>
+          Structure &amp; Semantics
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          🎨
+        </div>
+
+        <h3>
+          CSS
+        </h3>
+
+        <p>
+          Styling &amp; Layout
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          💡
+        </div>
+
+        <h3>
+          Creativity
+        </h3>
+
+        <p>
+          Concept &amp; Originality
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          ✨
+        </div>
+
+        <h3>
+          UI / UX
+        </h3>
+
+        <p>
+          Design &amp; Usability
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          📱
+        </div>
+
+        <h3>
+          Responsive
+        </h3>
+
+        <p>
+          Cross-device Compatibility
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="ic">
+          🎤
+        </div>
+
+        <h3>
+          Presentation
+        </h3>
+
+        <p>
+          Delivery &amp; Overall Impact
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROBLEM
+===================================================== -->
+
+<section id="problem">
+
+  <div class="wrap">
+
+
+    <div class="sh rv">
+
+      <p
+        class="gt"
+        style="font-weight:600"
+      >
+        Problem Statement
+      </p>
+
+      <h2>
+        Campus Safety &amp;
+        Harassment Reporting System
+      </h2>
+
+      <p>
+        Build a secure, confidential
+        digital platform that helps students
+        report safety concerns — and
+        automatically escalates repeated
+        incidents to the right authority.
+      </p>
+
+    </div>
+
+
+    <div class="banner rv">
+
+      <div>
+
+        <div class="hd">
+          🛡️ Challenge Brief
+        </div>
+
+
+        <p>
+
+          Students may sometimes experience
+          repeated unwanted following,
+          harassment, or uncomfortable
+          behaviour on or around campus.
+
+          In many cases, they hesitate to
+          report it because they are unsure
+          whom to contact or are worried
+          about their personal information
+          being widely shared.
+
+        </p>
+
+
+        <p class="b">
+
+          We need a secure and simple
+          digital reporting system that
+          helps students confidentially
+          report safety concerns and
+          ensures the issue is escalated
+          to the right authority when
+          repeated reports are received.
+
+        </p>
+
+      </div>
+
+
+      <div class="pills">
+
+        <span>
+          🔒 Your Safety Matters
+        </span>
+
+        <span>
+          👁️ Your Privacy Protected
+        </span>
+
+        <span>
+          🤝 Stronger Together
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- FEATURES -->
+
+    <div class="g2 rv">
+
+
+      <div class="card">
+
+        <div class="hd">
+          ⭐ Key Features
+        </div>
+
+
+        <div class="feat">
+
+          <b>1</b>
+
+          <div>
+
+            <strong>
+              Confidential Complaint Form
+            </strong>
+
+            <span>
+              Offline / Online Ragging
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="feat">
+
+          <b>2</b>
+
+          <div>
+
+            <strong>
+              Incident Details
+            </strong>
+
+            <span>
+              Date, Time, Location,
+              Description
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="feat">
+
+          <b>3</b>
+
+          <div>
+
+            <strong>
+              Optional Evidence Upload
+            </strong>
+
+            <span>
+              Photo / Screenshot
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="feat">
+
+          <b>4</b>
+
+          <div>
+
+            <strong>
+              Add Suspect Details
+            </strong>
+
+            <span>
+              Name, Department,
+              Phone Number
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="feat">
+
+          <b>5</b>
+
+          <div>
+
+            <strong>
+              Report Tracking
+            </strong>
+
+            <span>
+              Track your complaint status
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="feat">
+
+          <b>6</b>
+
+          <div>
+
+            <strong>
+              Automatic Escalation System
+            </strong>
+
+            <span>
+              1st → HOD |
+              2nd → Dean |
+              3rd → Higher Authority
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="feat">
+
+          <b>7</b>
+
+          <div>
+
+            <strong>
+              Role-Based Access &amp; Privacy
+            </strong>
+
+            <span>
+              Student / HOD / Dean /
+              Higher Authority
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- COMPLAINT TYPES -->
+
+      <div>
+
+        <div class="hd">
+          📋 Two Types of Complaints
+        </div>
+
+
+        <div class="cc off">
+
+          <h3>
+            🏫 Offline Ragging
+          </h3>
+
+          <div class="s">
+            Physical / In-Person Harassment
+          </div>
+
+          <ul>
+
+            <li>
+              Following / Stalking
+            </li>
+
+            <li>
+              Unwanted behaviour
+            </li>
+
+            <li>
+              Threats / Intimidation
+            </li>
+
+            <li>
+              Other offline incidents
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="cc on">
+
+          <h3>
+            💻 Online Ragging
+          </h3>
+
+          <div class="s">
+            Digital / Cyber Harassment
+          </div>
+
+          <ul>
+
+            <li>
+              Fake accounts
+            </li>
+
+            <li>
+              Obscene content
+            </li>
+
+            <li>
+              Online threats
+            </li>
+
+            <li>
+              Other cyber incidents
+            </li>
+
+          </ul>
+
+
+          <p class="note">
+            ⚠️ Online ragging complaints
+            must include screenshot proof
+            (if available).
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ESCALATION -->
+
+    <div class="rv">
+
+      <div
+        class="hd"
+        style="margin-bottom:.2rem"
+      >
+        ⚙️ Escalation Workflow
+      </div>
+
+      <p
+        style="
+          color:var(--muted);
+          font-size:.9rem;
+        "
+      >
+        Based on repeated reports,
+        the system automatically notifies
+        the right authority.
+      </p>
+
+    </div>
+
+
+    <div class="esc rv">
+
+
+      <div class="card">
+
+        <b>
+          1st Report
+        </b>
+
+        <h3 style="color:var(--c3)">
+          → HOD
+        </h3>
+
+        <p>
+          Student submits complaint.
+          HOD receives the report
+          (without victim details).
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <b>
+          2nd Report
+        </b>
+
+        <h3 style="color:#fbbf24">
+          → Dean
+        </h3>
+
+        <p>
+          Dean receives the report
+          (without victim details).
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <b>
+          3rd Report
+        </b>
+
+        <h3 style="color:#f43f5e">
+          → Higher Authority
+        </h3>
+
+        <p>
+          Higher authority receives
+          the report with full details
+          (if required).
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- WHY / TECHNOLOGY / OPTIONAL -->
+
+    <div class="g3 rv">
+
+
+      <div class="card">
+
+        <div class="hd">
+          💡 Why This Matters?
+        </div>
+
+        <ul class="list">
+
+          <li>
+            ✅ Builds a safer campus
+            for everyone
+          </li>
+
+          <li>
+            ✅ Encourages students
+            to speak up without fear
+          </li>
+
+          <li>
+            ✅ Helps authorities act
+            faster and more effectively
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="hd">
+          &lt;/&gt; Technology &amp; Team
+        </div>
+
+        <div class="tech">
+          💻
+          <span>
+            HTML + CSS + JavaScript
+          </span>
+        </div>
+
+        <div class="tech">
+          👥
+          <span>
+            2 – 3 Participants
+          </span>
+        </div>
+
+        <div class="tech">
+          ⏱️
+          <span>
+            2 Hours
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="hd">
+          ✨ Optional Features
+        </div>
+
+        <ul class="list">
+
+          <li>
+            ✓ Anonymous reporting option
+          </li>
+
+          <li>
+            ✓ Safe-zone map
+          </li>
+
+          <li>
+            ✓ Incident timeline
+          </li>
+
+          <li>
+            ✓ Report status tracking
+          </li>
+
+          <li>
+            ✓ Authority notification panel
+          </li>
+
+          <li>
+            ✓ Multi-language support
+          </li>
+
+          <li>
+            ✓ Accessibility features
+          </li>
+
+          <li>
+            ✓ Dark mode
+          </li>
+
+        </ul>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tagline rv">
+
+      <span class="gt">
+        Report safely.
+      </span>
+
+      <span class="gt">
+        Protect privacy.
+      </span>
+
+      <span class="gt">
+        Escalate when it matters.
+      </span>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM
+===================================================== -->
+
+<section id="team">
+
+  <div class="wrap">
+
+
+    <div class="sh rv">
+
+      <p
+        class="gt"
+        style="font-weight:600"
+      >
+        Operations Team
+      </p>
+
+      <h2>
+        Coordinators
+      </h2>
+
+    </div>
+
+
+    <p class="sub-t rv">
+      Faculty Coordinator
+    </p>
+
+
+    <div class="card fac rv">
+
+      <div class="av">
+
+        <img
+          src="coord-priyanshi.png"
+          alt="Priyanshi"
+        >
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Priyanshi
+        </h3>
+
+        <p>
+          Faculty Coordinator —
+          HackVerse
+        </p>
+
+        <span class="tg">
+          Faculty · In-Charge
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <p class="sub-t rv">
+      Student Coordinators
+    </p>
+
+
+    <div class="people rv">
+
+
+      <div class="card person">
+
+        <div class="av">
+
+          <img
+            src="coord-farzana.png"
+            alt="Farzana Kaleesha"
+          >
+
+        </div>
+
+        <h3>
+          Farzana Kaleesha
+        </h3>
+
+        <p>
+          Event Coordinator
+        </p>
+
+      </div>
+
+
+      <div class="card person">
+
+        <div class="av">
+
+          <img
+            src="coord-rajesh.png"
+            alt="Rajesh. S"
+          >
+
+        </div>
+
+        <h3>
+          Rajesh. S
+        </h3>
+
+        <p>
+          Event Coordinator
+        </p>
+
+      </div>
+
+
+      <div class="card person">
+
+        <div class="av">
+
+          <img
+            src="coord-praveen.png"
+            alt="Praveenkumar"
+          >
+
+        </div>
+
+        <h3>
+          Praveenkumar
+        </h3>
+
+        <p>
+          Event Coordinator
+        </p>
+
+      </div>
+
+
+      <div class="card person">
+
+        <div class="av">
+
+          <img
+            src="coord-keerthi.png"
+            alt="Keerthi Vasan"
+          >
+
+        </div>
+
+        <h3>
+          Keerthi Vasan
+        </h3>
+
+        <p>
+          Event Coordinator
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUBMIT
+===================================================== -->
+
+<section id="submit">
+
+  <div class="wrap">
+
+
+    <div class="sh rv">
+
+      <p
+        class="gt"
+        style="font-weight:600"
+      >
+        Submission Protocol
+      </p>
+
+      <h2>
+        Submit Your Project
+      </h2>
+
+    </div>
+
+
+    <div class="sub rv">
+
+
+      <div>
+
+        <p class="bd">
+          ● Compulsory for all teams
+        </p>
+
+
+        <h3>
+          Send ZIP via WhatsApp
+        </h3>
+
+
+        <p>
+
+          Every participant must send
+          their finished project as a
+          <strong>.zip file</strong>
+
+          to the coordinator's WhatsApp
+          number immediately upon completion.
+
+          Teams that fail to submit before
+          the cutoff will not be evaluated.
+
+        </p>
+
+
+        <ol>
+
+          <li>
+            Zip your entire project folder —
+            include all files
+          </li>
+
+          <li>
+            Rename:
+            <strong>
+              TeamName_HackVerse.zip
+            </strong>
+          </li>
+
+          <li>
+            Send via WhatsApp to the number
+            before time ends
+          </li>
+
+        </ol>
+
+      </div>
+
+
+      <div>
+
+        <div class="num">
+          +91 98406 94616
+        </div>
+
+
+        <a
+          class="btn btn-wa"
+          target="_blank"
+          rel="noopener"
+          href="https://wa.me/919840694616?text=Hi%21+Submitting+my+HackVerse+project+zip."
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495.001.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+
+          </svg>
+
+          Send on WhatsApp
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <div class="wrap foot">
+
+    <b class="gt">
+      HACKVERSE
+    </b>
+
+    <span>
+      Event #01 · Takshashila University
+      × FACEPrep Campus · 2025
+    </span>
+
+  </div>
+
+</footer>
+
+
+<!-- =====================================================
+     WHATSAPP FLOAT BUTTON
+===================================================== -->
+
+<a
+  class="fab"
+  href="https://wa.me/919840694616"
+  target="_blank"
+  rel="noopener"
+  aria-label="WhatsApp"
+>
+
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495.001.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+
+  </svg>
+
+</a>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   SPLASH
+===================================================== */
+
+const splash =
+  document.getElementById('splash');
+
+
+function closeSplash(){
+
+  splash.classList.add('hide');
+
+  document.body.classList.remove('locked');
+
+  setTimeout(
+    () => splash.remove(),
+    800
+  );
+
+}
+
+
+setTimeout(
+  closeSplash,
+  8500
+);
+
+splash.onclick =
+  closeSplash;
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const io =
+  new IntersectionObserver(
+    es => {
+
+      es.forEach(e => {
+
+        if(e.isIntersecting){
+
+          e.target.classList.add('in');
+
+        }
+
+      });
+
+    },
+    {
+      threshold:.07
+    }
+  );
+
+
+document
+  .querySelectorAll('.rv')
+  .forEach(el =>
+    io.observe(el)
+  );
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+const tt =
+  document.getElementById('tt');
+
+const knob =
+  document.getElementById('knob');
+
+
+function setTheme(light){
+
+  document.body.classList.toggle(
+    'light',
+    light
+  );
+
+  knob.textContent =
+    light ? '☀️' : '🌙';
+
+  tt.title =
+    light
+      ? 'Switch to Dark Theme'
+      : 'Switch to Light Theme';
+
+}
+
+
+try{
+
+  setTheme(
+    localStorage.getItem(
+      'hv-theme'
+    ) === 'light'
+  );
+
+}catch(e){}
+
+
+/* =====================================================
+   THEME SPARKS
+===================================================== */
+
+function burst(
+  x,
+  y,
+  light
+){
+
+  const set =
+    light
+      ? [
+          '☀️',
+          '🌟',
+          '✨',
+          '🔆',
+          '🌈'
+        ]
+      : [
+          '🌙',
+          '⭐',
+          '✨',
+          '💫',
+          '🌌'
+        ];
+
+
+  for(
+    let i=0;
+    i<22;
+    i++
+  ){
+
+    const s =
+      document.createElement(
+        'span'
+      );
+
+    s.className =
+      'spark';
+
+    s.textContent =
+      set[i % set.length];
+
+    s.style.left =
+      x + 'px';
+
+    s.style.top =
+      y + 'px';
+
+    document.body.appendChild(s);
+
+
+    const a =
+      Math.random()
+      * Math.PI
+      * 2;
+
+    const d =
+      70 +
+      Math.random()
+      * 150;
+
+
+    s.animate(
+
+      [
+
+        {
+          transform:
+            'translate(-50%,-50%) scale(.4)',
+
+          opacity:1
+        },
+
+        {
+
+          transform:
+            `translate(
+              ${Math.cos(a)*d}px,
+              ${Math.sin(a)*d}px
+            )
+            rotate(
+              ${Math.random()*540}deg
+            )
+            scale(1.4)`,
+
+          opacity:0
+
+        }
+
+      ],
+
+      {
+        duration:
+          900 +
+          Math.random()*500,
+
+        easing:
+          'cubic-bezier(.2,.8,.3,1)'
+      }
+
+    ).onfinish =
+      () => s.remove();
+
+  }
+
+}
+
+
+/* =====================================================
+   THEME BUTTON
+===================================================== */
+
+tt.addEventListener(
+  'click',
+  () => {
+
+    const r =
+      tt.getBoundingClientRect();
+
+    const x =
+      r.left +
+      r.width/2;
+
+    const y =
+      r.top +
+      r.height/2;
+
+    const goLight =
+      !document.body
+        .classList
+        .contains('light');
+
+
+    const end =
+      Math.hypot(
+        Math.max(
+          x,
+          innerWidth-x
+        ),
+
+        Math.max(
+          y,
+          innerHeight-y
+        )
+      );
+
+
+    const apply =
+      () => {
+
+        setTheme(
+          goLight
+        );
+
+        try{
+
+          localStorage.setItem(
+            'hv-theme',
+            goLight
+              ? 'light'
+              : 'dark'
+          );
+
+        }catch(e){}
+
+      };
+
+
+    burst(
+      x,
+      y,
+      goLight
+    );
+
+
+    if(
+      document.startViewTransition &&
+      !matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      ).matches
+    ){
+
+      document
+        .startViewTransition(
+          apply
+        )
+        .ready
+        .then(
+          () => {
+
+            document.documentElement.animate(
+
+              {
+                clipPath:[
+                  `circle(
+                    0px at
+                    ${x}px
+                    ${y}px
+                  )`,
+
+                  `circle(
+                    ${end}px at
+                    ${x}px
+                    ${y}px
+                  )`
+                ]
+              },
+
+              {
+                duration:850,
+
+                easing:'ease-in-out',
+
+                pseudoElement:
+                  '::view-transition-new(root)'
+              }
+
+            );
+
+          }
+        );
+
+    }else{
+
+      apply();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+const mainNav =
+  document.getElementById(
+    'mainNav'
+  );
+
+
+window.addEventListener(
+  'scroll',
+  () => {
+
+    if(
+      window.scrollY > 30
+    ){
+
+      mainNav.classList.add(
+        'scrolled'
+      );
+
+    }else{
+
+      mainNav.classList.remove(
+        'scrolled'
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuToggle =
+  document.getElementById(
+    'menuToggle'
+  );
+
+const mobileMenu =
+  document.getElementById(
+    'mobileMenu'
+  );
+
+
+menuToggle.addEventListener(
+  'click',
+  () => {
+
+    const isOpen =
+      menuToggle.classList.toggle(
+        'open'
+      );
+
+    mobileMenu.classList.toggle(
+      'open',
+      isOpen
+    );
+
+    menuToggle.setAttribute(
+      'aria-expanded',
+      isOpen
+        ? 'true'
+        : 'false'
+    );
+
+  }
+);
+
+
+/* =====================================================
+   CLOSE MOBILE MENU
+===================================================== */
+
+const mobileLinks =
+  document.querySelectorAll(
+    '.mobile-link, .mobile-submit'
+  );
+
+
+mobileLinks.forEach(
+  link => {
+
+    link.addEventListener(
+      'click',
+      () => {
+
+        menuToggle.classList.remove(
+          'open'
+        );
+
+        mobileMenu.classList.remove(
+          'open'
+        );
+
+        menuToggle.setAttribute(
+          'aria-expanded',
+          'false'
+        );
+
+      }
+    );
+
+  }
+);
+
+
+/* =====================================================
+   ACTIVE NAVIGATION
+===================================================== */
+
+const navLinks =
+  document.querySelectorAll(
+    '.nav-link'
+  );
+
+
+const sections =
+  document.querySelectorAll(
+    '#details, #focus, #problem, #team, #submit'
+  );
+
+
+const sectionObserver =
+  new IntersectionObserver(
+
+    entries => {
+
+      entries.forEach(
+        entry => {
+
+          if(
+            !entry.isIntersecting
+          ){
+            return;
+          }
+
+
+          const id =
+            entry.target
+              .getAttribute(
+                'id'
+              );
+
+
+          navLinks.forEach(
+            link => {
+
+              link.classList.remove(
+                'active'
+              );
+
+
+              if(
+                link.getAttribute(
+                  'href'
+                ) ===
+                '#' + id
+              ){
+
+                link.classList.add(
+                  'active'
+                );
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+    },
+
+    {
+      rootMargin:
+        '-35% 0px -55% 0px',
+
+      threshold:0
+    }
+
+  );
+
+
+sections.forEach(
+  section =>
+    sectionObserver.observe(
+      section
+    )
+);
+
+
+/* =====================================================
+   ESCAPE CLOSE
+===================================================== */
+
+document.addEventListener(
+  'keydown',
+  e => {
+
+    if(
+      e.key === 'Escape'
+    ){
+
+      menuToggle.classList.remove(
+        'open'
+      );
+
+      mobileMenu.classList.remove(
+        'open'
+      );
+
+      menuToggle.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
+    }
+
+  }
+);
+
 </script>
+
 </body>
 </html>
+ 
